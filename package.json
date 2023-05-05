@@ -1,0 +1,27 @@
+{
+  "name": "uis-form",
+  "version": "1.0.0",
+  "description": "Form for incident data input for different IT issues",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niwagabaa/UCU-form.git"
+  },
+  "author": "Rogers Niwagaba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niwagabaa/UCU-form/issues"
+  },
+  "homepage": "https://github.com/niwagabaa/UCU-form#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
