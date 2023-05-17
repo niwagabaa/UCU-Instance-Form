@@ -3,10 +3,25 @@ console.log('May Node be with you')
 
 //Requiring express dependency on the server
 const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 
+//MongoDB Schemas
+const Schema = mongoose.Schema
+
 const app = express()
+
+//Choosing our view engine which is ejs and location
+app.set('view engine', 'ejs')
+app.set('views',__dirname + '/views')
+//hookup express layouts
+app.set('layout', 'layouts/layouts')
+app.use(expressLayouts)
+app.use(express.static('public'))
+
+//setting up routers to the different pages
+const indexRouter = require('./routes/index')
 
 
 //Body parser before the crud handlers
@@ -26,17 +41,22 @@ async function connect(){
 
 connect();
 
+
+
+
+
 //CRUD handlers
 //Handle the get request with an endpoint and callback function
-app.get('/', (req,res) => {
-  res.sendFile (__dirname + "/index.html")
-})
+//app.get('/', (req,res) => {
+//  res.sendFile (__dirname + "/views/index.html")
+//})
 
 
-app.post('/dashboard', (req,res) => {
-  console.log(req.body)
-})
+//app.post('/dashboard', (req,res) => {
+//  console.log(req.body)
+//})
 
+app.use('/', indexRouter)
 
 //A server that the browser can connect using the express "listen" method
 app.listen(3000, function () {
