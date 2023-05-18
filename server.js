@@ -18,7 +18,12 @@ app.set('views',__dirname + '/views')
 //hookup express layouts
 app.set('layout', 'layouts/layouts')
 app.use(expressLayouts)
-app.use(express.static('public'))
+
+//Static files
+app.use(express.static("public"));
+app.use('css', express.static(__dirname + 'public/css'))
+app.use('js', express.static(__dirname + 'public/js'))
+app.use('images', express.static(__dirname + 'public/images'))
 
 //setting up routers to the different pages
 const indexRouter = require('./routes/index')
