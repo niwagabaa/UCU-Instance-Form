@@ -3,7 +3,7 @@ const router = express.Router()
 
 //login page route
 router.get('/', (req, res) => {
-  res.render("index")
+  res.render("incidentView")
 })
 
 

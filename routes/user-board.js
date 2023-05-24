@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-//login page route
+//dashboard for users route
 router.get('/', (req, res) => {
-  res.render("index")
+  res.render("reportdashboard")
 })
-
 
 //exprting the files to server.js
 module.exports = router

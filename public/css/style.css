@@ -1,0 +1,19 @@
+
+
+.footer-color {
+  background-color: #d7014d;
+}
+
+
+.navbar-brand {
+  padding: 10px 150px 10px 50px ;
+}
+
+a {
+  color: #0c3c92;
+  transition: background-color 0.5s;
+}
+
+a:hover {
+  color: #d7014d;
+}

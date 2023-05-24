@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-//login page route
+//report form route
 router.get('/', (req, res) => {
-  res.render("index")
+  res.render("incident-report")
 })
 
 
