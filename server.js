@@ -32,6 +32,7 @@ const adminDashboardRouter = require('./routes/admin-board')
 const reportFormRouter = require('./routes/report-incident-form')
 const dashboardRouter = require('./routes/user-board')
 const viewBoardRouter = require('./routes/viewer-board')
+const reportViewRouter = require('./routes/view-form')
 
 
 //Body parser before the crud handlers
@@ -70,8 +71,9 @@ app.use('/', indexRouter)
 app.use('/register', registerRouter)
 app.use('/admin-dashboard', adminDashboardRouter)
 app.use('/report-an-incident', reportFormRouter)
-app.use('dashboard', dashboardRouter)
-app.use('view-reports', viewBoardRouter)
+app.use('/dashboard', dashboardRouter)
+app.use('/reports', viewBoardRouter)
+app.use('/report-statement', reportViewRouter)
 
 //A server that the browser can connect using the express "listen" method
 app.listen(3000, function () {
