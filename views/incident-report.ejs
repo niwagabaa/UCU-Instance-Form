@@ -26,47 +26,92 @@
 
               <div class="container">
                 <div class="row mb-5">
-                  <div class="col-md-3"></div>
+                  <div class="col-md-2"></div>
 
-                  <div class="col-md-6">
-                    <h3 class="card-title">Log In</h3>
+                  <div class="col-md-8">
+                    <h3 class="card-title mb-5">Fill in the form to report a network incident</h3>
 
                     <form>
-                      <!-- Email input -->
+                      <!-- Title input -->
                       <div class="form-outline mb-4">
-                        <input type="email" id="form1Example1" class="form-control" />
-                        <label class="form-label" for="form1Example1">Email address</label>
+                        <input type="text" id="typeText" class="form-control" />
+                        <label class="form-label" for="typeText">Title</label>
                       </div>
 
-                      <!-- Password input -->
-                      <div class="form-outline mb-4">
-                        <input type="password" id="form1Example2" class="form-control" />
-                        <label class="form-label" for="form1Example2">Password</label>
+                      <!-- Date and time (date and time picker) input -->
+                      <label for="exampleDatepicker1" class="form-label">Time of Incident</label>
+                      <div class="form-outline datepicker mb-4" data-mdb-toggle-button="false">
+                        <input
+                          type="datetime-local"
+                          class="form-control"
+                          id="exampleDatepicker1"
+                          data-mdb-toggle="datepicker"
+                        />
                       </div>
 
-                      <!-- 2 column grid layout for inline styling -->
-                      <div class="row mb-4">
-                        <div class="col d-flex justify-content-center">
-                          <!-- Checkbox -->
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                            <label class="form-check-label" for="form1Example3"> Remember me </label>
-                          </div>
-                        </div>
+                      <!-- Reporter input -->
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form4Example1" class="form-control" />
+                        <label class="form-label" for="form4Example1">Reporter</label>
+                      </div>
 
-                        <div class="col">
-                          <!-- Simple link -->
-                          <a href="#!">Forgot password?</a>
-                        </div>
+
+                      <!-- Executive Summary input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Executive Summary</label>
+                      </div>
+
+                      <!-- Time-line of the incident input -->
+                      <div class="form-outline">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Time-line of the Incident</label>
+                      </div>
+                      <div id="textExample1" class="form-text">
+                        Use this format:
+                        <ul>
+                          <li>09:00 AM - Network outage was first reported by security head on site.</li>
+                          <li>09:30 AM - The Ass. network administrator was notified of the outage</li>
+                        </ul>
+                      </div>
+
+                      <!-- Root Cause analysis input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Root Cause Analysis</label>
+                      </div>
+
+                      <!-- impact input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Impact</label>
+                      </div>
+
+                      <!-- Resolution input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Resolution</label>
+                      </div>
+
+                      <!-- Recommendation input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Recommendation</label>
+                      </div>
+
+                      <!-- Conclusion input -->
+                      <div class="form-outline mb-4">
+                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                        <label class="form-label" for="form4Example3">Conclusion</label>
                       </div>
 
                       <!-- Submit button -->
-                      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                      <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
                     </form>
 
                   </div>
 
-                  <div class="col-md-3"></div>
+                  <div class="col-md-2"></div>
 
                 </div>
               </div>
