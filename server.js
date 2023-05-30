@@ -1,4 +1,6 @@
 // server.js
+// require('dotenv').config();
+
 console.log('May Node be with you')
 
 //Requiring express dependency on the server
@@ -6,6 +8,8 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+const dotenv = require('dotenv')
+dotenv.config();
 
 //MongoDB Schemas
 const Schema = mongoose.Schema
@@ -15,7 +19,7 @@ const app = express()
 //Choosing our view engine which is ejs and location
 app.set('view engine', 'ejs')
 app.set('views',__dirname + '/views')
-//hookup express layouts
+//hookup express layouts templeting engine
 app.set('layout', 'layouts/layouts')
 app.use(expressLayouts)
 
@@ -38,19 +42,23 @@ const reportViewRouter = require('./routes/view-form')
 //Body parser before the crud handlers
 app.use(bodyParser.urlencoded({ extended: true }))
 
-//Function to connect mongoose to mongodb
-const url = 'mongodb+srv://power:VX5s4RpSdeJPEaHD@cluster0.nxgekpj.mongodb.net/?retryWrites=true&w=majority'
+// //Function to connect mongoose to mongodb
+// Mongo DB conncetion
+const database = process.env.MONGOLAB_URI;
+mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
+.then(() => console.log('"n" done connect'))
+.catch(err => console.log(err));
 
-async function connect(){
-  try {
-    await mongoose.connect(url);
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-connect();
+// async function connect(){
+//   try {
+//     await mongoose.connect(url);
+//     console.log("Connected to MongoDB");
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+//
+// connect();
 
 
 
@@ -74,6 +82,15 @@ app.use('/report-an-incident', reportFormRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/reports', viewBoardRouter)
 app.use('/report-statement', reportViewRouter)
+
+
+//Handle 404 error
+app.get("*", (req,res) => {
+  res.status(404).render('404')
+});
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 //A server that the browser can connect using the express "listen" method
 app.listen(3000, function () {

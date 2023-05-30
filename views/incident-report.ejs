@@ -28,11 +28,12 @@
                   <div class="col-md-8">
                     <h3 class="card-title mb-5">Fill in the form to report a network incident</h3>
 
-                    <form>
+                    <form id="report-form" action="/report-statement" method="post">
                       <!-- Title input -->
                       <div class="form-outline mb-4">
-                        <input type="text" id="typeText" class="form-control" />
-                        <label class="form-label" for="typeText">Title</label>
+                        <input type="text" id="title" class="form-control" />
+                        <label class="form-label" for="title">Title</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Date and time (date and time picker) input -->
@@ -48,21 +49,24 @@
 
                       <!-- Reporter input -->
                       <div class="form-outline mb-4">
-                        <input type="text" id="form4Example1" class="form-control" />
-                        <label class="form-label" for="form4Example1">Reporter</label>
+                        <input type="text" id="reporter" class="form-control" />
+                        <label class="form-label" for="reporter">Reporter</label>
+                        <div class="error"></div>
                       </div>
 
 
                       <!-- Executive Summary input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Executive Summary</label>
+                        <textarea class="form-control" id="summary" rows="4"></textarea>
+                        <label class="form-label" for="summary">Executive Summary</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Time-line of the incident input -->
                       <div class="form-outline">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Time-line of the Incident</label>
+                        <textarea class="form-control" id="timeline" rows="4"></textarea>
+                        <label class="form-label" for="timeline">Time-line of the Incident</label>
+                        <div class="error"></div>
                       </div>
                       <div id="textExample1" class="form-text">
                         Use this format:
@@ -74,36 +78,41 @@
 
                       <!-- Root Cause analysis input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Root Cause Analysis</label>
+                        <textarea class="form-control" id="root" rows="4"></textarea>
+                        <label class="form-label" for="root">Root Cause Analysis</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- impact input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Impact</label>
+                        <textarea class="form-control" id="impact" rows="4"></textarea>
+                        <label class="form-label" for="impact">Impact</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Resolution input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Resolution</label>
+                        <textarea class="form-control" id="resolution" rows="4"></textarea>
+                        <label class="form-label" for="resolution">Resolution</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Recommendation input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Recommendation</label>
+                        <textarea class="form-control" id="recommendation" rows="4"></textarea>
+                        <label class="form-label" for="recommendation">Recommendation</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Conclusion input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-                        <label class="form-label" for="form4Example3">Conclusion</label>
+                        <textarea class="form-control" id="conclusion" rows="4"></textarea>
+                        <label class="form-label" for="conclusion">Conclusion</label>
+                        <div class="error"></div>
                       </div>
 
                       <!-- Submit button -->
-                      <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                      <button type="submit" class="btn btn-outline-primary mb-4" data-mdb-ripple-color="dark">Send</button>
                     </form>
 
                   </div>
