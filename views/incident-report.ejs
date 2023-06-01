@@ -4,7 +4,7 @@
       <div class="col-md-1"></div>
 
       <div class="col-md-10">
-        <div class="card">
+        <div class="card border-0">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="/images/aaron-burden-xG8IQMqMITM-unsplash.jpg" class="img-fluid"/>
             <a href="#!">
@@ -28,28 +28,29 @@
                   <div class="col-md-8">
                     <h3 class="card-title mb-5">Fill in the form to report a network incident</h3>
 
-                    <form id="report-form" action="/report-statement" method="post">
+                    <form id="report-form" action="/report-incident-form" method="POST">
                       <!-- Title input -->
                       <div class="form-outline mb-4">
-                        <input type="text" id="title" class="form-control" />
+                        <input type="text" id="title" name="title" class="form-control" />
                         <label class="form-label" for="title">Title</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- Date and time (date and time picker) input -->
-                      <label for="exampleDatepicker1" class="form-label">Time of Incident</label>
+                      <label for="incident-time"  class="form-label">Time of Incident</label>
                       <div class="form-outline datepicker mb-4" data-mdb-toggle-button="false">
                         <input
                           type="datetime-local"
                           class="form-control"
-                          id="exampleDatepicker1"
+                          id="incident-time"
+                          name="incident-time"
                           data-mdb-toggle="datepicker"
                         />
                       </div>
 
                       <!-- Reporter input -->
                       <div class="form-outline mb-4">
-                        <input type="text" id="reporter" class="form-control" />
+                        <input type="text" id="reporter" name="reporter" class="form-control" />
                         <label class="form-label" for="reporter">Reporter</label>
                         <div class="error"></div>
                       </div>
@@ -57,14 +58,14 @@
 
                       <!-- Executive Summary input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="summary" rows="4"></textarea>
+                        <textarea class="form-control" id="summary" name="summary" rows="4"></textarea>
                         <label class="form-label" for="summary">Executive Summary</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- Time-line of the incident input -->
                       <div class="form-outline">
-                        <textarea class="form-control" id="timeline" rows="4"></textarea>
+                        <textarea class="form-control" id="timeline" name="timeline" rows="4"></textarea>
                         <label class="form-label" for="timeline">Time-line of the Incident</label>
                         <div class="error"></div>
                       </div>
@@ -78,35 +79,35 @@
 
                       <!-- Root Cause analysis input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="root" rows="4"></textarea>
+                        <textarea class="form-control" id="root" name="root" rows="4"></textarea>
                         <label class="form-label" for="root">Root Cause Analysis</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- impact input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="impact" rows="4"></textarea>
+                        <textarea class="form-control" id="impact" name="impact" rows="4"></textarea>
                         <label class="form-label" for="impact">Impact</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- Resolution input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="resolution" rows="4"></textarea>
+                        <textarea class="form-control" id="resolution" name="resolution" rows="4"></textarea>
                         <label class="form-label" for="resolution">Resolution</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- Recommendation input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="recommendation" rows="4"></textarea>
+                        <textarea class="form-control" id="recommendation" name="recommendation" rows="4"></textarea>
                         <label class="form-label" for="recommendation">Recommendation</label>
                         <div class="error"></div>
                       </div>
 
                       <!-- Conclusion input -->
                       <div class="form-outline mb-4">
-                        <textarea class="form-control" id="conclusion" rows="4"></textarea>
+                        <textarea class="form-control" id="conclusion" name="conclusion" rows="4"></textarea>
                         <label class="form-label" for="conclusion">Conclusion</label>
                         <div class="error"></div>
                       </div>

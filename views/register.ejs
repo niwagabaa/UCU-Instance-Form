@@ -9,7 +9,7 @@
       <div class="col-md-1"></div>
 
       <div class="col-md-10">
-        <div class="card">
+        <div class="card border-0">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img src="/images/timon-studler-BIk2ANMmNz4-unsplash.jpg" class="img-fluid"/>
             <a href="#!">
@@ -33,19 +33,19 @@
                   <div class="col-md-10">
                     <h3 class="card-title mb-5">Register User</h3>
 
-                    <form id="register-form" action="" method="">
+                    <form id="register-form" action="/register" method="POST">
                       <!-- 2 column grid layout with text inputs for the first and last names -->
                       <div class="row mb-4">
                         <div class="col">
                           <div class="form-outline">
-                            <input type="text" id="fname" class="form-control" />
+                            <input type="text" id="fname" name="fname" class="form-control" />
                             <label class="form-label" for="fname">First name</label>
                             <div class="error"></div>
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-outline">
-                            <input type="text" id="lname" class="form-control" />
+                            <input type="text" id="lname" name="lname" class="form-control" />
                             <label class="form-label" for="lname">Last name</label>
                             <div class="error"></div>
                           </div>
@@ -54,7 +54,7 @@
 
                       <!-- Email input -->
                       <div class="form-outline mb-4">
-                        <input type="email" id="email1" class="form-control" />
+                        <input type="email" id="email1" name="email1" class="form-control" />
                         <label class="form-label" for="email1">Email address</label>
                         <div class="error"></div>
                       </div>
@@ -64,14 +64,14 @@
                       <div class="row mb-4">
                         <div class="col">
                           <div class="form-outline">
-                            <input type="text" id="role" class="form-control" />
+                            <input type="text" id="role" name="role" class="form-control" />
                             <label class="form-label" for="role">Role</label>
                             <div class="error"></div>
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-outline">
-                            <input type="text" id="department" class="form-control" />
+                            <input type="text" id="department" name="department" class="form-control" />
                             <label class="form-label" for="department">Department</label>
                             <div class="error"></div>
                           </div>
@@ -79,16 +79,16 @@
                       </div>
 
                       <!-- User permissions -->
-                      <select class="custom-select mb-4" style="border-color:grey; color:grey; border-radius: 5px;">
-                        <option selected>Type </option>
-                        <option value="1">Viewer</option>
-                        <option value="2">Editor</option>
+                      <label for="type" class="form-label">Type : </label>
+                      <select class="custom-select mb-4" style="border-color:grey; color:grey; border-radius: 5px;" id="type" name="type">
+                        <option for="type" name= "viewer" value="viewer">Viewer</option>
+                        <option for="type" name="editor" value="editor">Editor</option>
 
                       </select>
 
                       <!-- Password input -->
                       <div class="form-outline mb-4">
-                        <input type="password" id="password" class="form-control" />
+                        <input type="password" id="password" name="password" class="form-control" />
                         <label class="form-label" for="password">Password</label>
                         <div class="error"></div>
                       </div>

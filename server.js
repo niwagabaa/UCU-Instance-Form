@@ -39,8 +39,7 @@ const viewBoardRouter = require('./routes/viewer-board')
 const reportViewRouter = require('./routes/view-form')
 
 
-//Body parser before the crud handlers
-app.use(bodyParser.urlencoded({ extended: true }))
+
 
 // //Function to connect mongoose to mongodb
 // Mongo DB conncetion
@@ -49,31 +48,8 @@ mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
 .then(() => console.log('"n" done connect'))
 .catch(err => console.log(err));
 
-// async function connect(){
-//   try {
-//     await mongoose.connect(url);
-//     console.log("Connected to MongoDB");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-//
-// connect();
 
-
-
-
-
-//CRUD handlers
-//Handle the get request with an endpoint and callback function
-//app.get('/', (req,res) => {
-//  res.sendFile (__dirname + "/views/index.html")
-//})
-
-
-//app.post('/dashboard', (req,res) => {
-//  console.log(req.body)
-//})
+//Controllers to the views
 
 app.use('/', indexRouter)
 app.use('/register', registerRouter)
@@ -89,8 +65,9 @@ app.get("*", (req,res) => {
   res.status(404).render('404')
 });
 
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+//Body BodyParsing
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //A server that the browser can connect using the express "listen" method
 app.listen(3000, function () {
