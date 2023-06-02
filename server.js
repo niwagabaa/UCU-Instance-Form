@@ -16,6 +16,10 @@ const Schema = mongoose.Schema
 
 const app = express()
 
+//Body BodyParsing
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 //Choosing our view engine which is ejs and location
 app.set('view engine', 'ejs')
 app.set('views',__dirname + '/views')
@@ -33,13 +37,10 @@ app.use('images', express.static(__dirname + 'public/images'))
 const indexRouter = require('./routes/index')
 const registerRouter = require('./routes/register')
 const adminDashboardRouter = require('./routes/admin-board')
-const reportFormRouter = require('./routes/report-incident-form')
+const reportFormRouter = require('./routes/writeIncident')
 const dashboardRouter = require('./routes/user-board')
 const viewBoardRouter = require('./routes/viewer-board')
 const reportViewRouter = require('./routes/view-form')
-
-
-
 
 // //Function to connect mongoose to mongodb
 // Mongo DB conncetion
@@ -65,9 +66,7 @@ app.get("*", (req,res) => {
   res.status(404).render('404')
 });
 
-//Body BodyParsing
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+
 
 //A server that the browser can connect using the express "listen" method
 app.listen(3000, function () {

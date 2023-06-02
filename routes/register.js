@@ -63,17 +63,10 @@ router.get('/', (req, res) => {
 
 //user registration route(POST request)Create new user
 router.post('/', (req, res) => {
-  console.log(
-      `username: ${req.body.lname},
-      password: ${req.body.password}`,
-    );
 
-    res.send(
-      `username: ${req.body.fname},
-      password: ${req.body.email1}`,
-    );
-
-  // res.render("register")
+  console.log(req.body);
+  res.render("register")
+  
 })
 
 //exporting the files to server.js

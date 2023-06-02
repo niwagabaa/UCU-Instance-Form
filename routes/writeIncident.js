@@ -54,11 +54,12 @@ router.get('/', (req, res) => {
 
 //incident registration route(POST request)Create new incident
 router.post('/', (req, res) => {
-  console.log(req.body);
 
+  console.log(req.body);
   res.render("incident-report")
+
 })
 
 
-//exprting the files to server.js
+//exporting the files to server.js
 module.exports = router
