@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const ReportSchema = new mongoose.Schema({
   title: {
     type: String,

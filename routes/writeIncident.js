@@ -1,5 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const Report = require('../model/Issues')
+const mongoose = require('mongoose')
+
 
 //js
 //Post Request that handles Register
@@ -50,6 +53,33 @@ const router = express.Router()
 //report form route
 router.get('/', (req, res) => {
   res.render("incident-report")
+})
+
+//user registration route(POST request)Create new user
+router.post('/', async (req, res) => {
+
+  console.log(req.body);
+
+  const newReport = new Report({
+    title: req.body.title,
+    exampleDatepicker1: req.body.exampleDatepicker1,
+    reporter:req.body.reporter,
+    summary: req.body.summary,
+    timeline: req.body.timeline,
+    root: req.body.root,
+    impact: req.body.impact,
+    resolution: req.body.resolution,
+    recommendation: req.body.recommendation,
+    conclusion: req.body.conclusion,
+
+  });
+  try {
+    await Report.create(newReport);
+
+    res.redirect('/');
+  } catch (e) {
+    console.log(e);
+  }
 })
 
 //incident registration route(POST request)Create new incident

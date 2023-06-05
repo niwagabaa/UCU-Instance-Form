@@ -1,59 +1,12 @@
 const express = require('express')
 const router = express.Router()
-
+const User = require('../model/User')
+//requiring bcrypt to hash the passwords
+const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose')
 // //BodyParsing
 // app.use(express.urlencoded({extended: false}));
-//
-// //js
-// //Post Request that handles Register
-// const registerUser = (req, res) => {
-//   const { fname, lname, email1, role, department, type, password, date } = req.body;
-//   if (!fname || !lname || !email1 || !role || !department || !type || !password || !date) {
-//     console.log("Fill empty fields");
-//   }
-//   //Confirm Passwords
-//   if (password !== confirm) {
-//     console.log("Password must match");
-//   } else {
-//     //Validation
-//     User.findOne({ email1: email1 }).then((user) => {
-//       if (user) {
-//         console.log("email exists");
-//         res.render("register", {
-//           fname,
-//           lname,
-//           email1,
-//           role,
-//           department,
-//           type
-//         });
-//       } else {
-//         //Validation
-//         const newUser = new User({
-//           fname,
-//           lname,
-//           email1,
-//           role,
-//           department,
-//           type,
-//           password,
-//           date
-//         });
-//         //Password Hashing
-//         bcrypt.genSalt(10, (err, salt) =>
-//           bcrypt.hash(newUser.password, salt, (err, hash) => {
-//             if (err) throw err;
-//             newUser.password = hash;
-//             newUser
-//               .save()
-//               .then(res.redirect("/register"))
-//               .catch((err) => console.log(err));
-//           })
-//         );
-//       }
-//     });
-//   }
-// };
+
 
 
 //user registration route(GET request)
@@ -62,11 +15,27 @@ router.get('/', (req, res) => {
 })
 
 //user registration route(POST request)Create new user
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
 
   console.log(req.body);
-  res.render("register")
-  
+
+  const newUser = new User({
+    fname: req.body.fname,
+    lname: req.body.lname,
+    email1:req.body.email1,
+    role: req.body.role,
+    department: req.body.department,
+    type: req.body.type,
+    password: req.body.password,
+
+  });
+  try {
+    await User.create(newUser);
+
+    res.redirect('/admin-dashboard');
+  } catch (e) {
+    console.log(e);
+  }
 })
 
 //exporting the files to server.js
