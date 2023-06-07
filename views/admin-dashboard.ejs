@@ -111,7 +111,42 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <% reports.forEach(element => { %>
+                    <tr>
+                      <td>
+                        <p class="fw-normal mb-1"><%= element.title %></p>
+                        <!-- <p class="text-muted mb-0">Finance</p> -->
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1"><%= element.fname %> <%= element.lname %></p>
+                            <p class="text-muted mb-0"><%= element.email1 %></p>
+                          </div>
+
+                        </div>
+                      </td>
+                      <td>
+                        <p class="fw-normal mb-1"><%= element.role %></p>
+                        <p class="text-muted mb-0"><%= element.department %></p>
+                      </td>
+                      <td>
+                        <span class="badge badge-success rounded-pill d-inline">Active</span>
+                      </td>
+                      <td>
+
+                        <button type="button" class="btn btn-link btn-sm btn-rounded">
+                          Edit
+                        </button>
+                        <button type="button" class="btn btn-link btn-sm btn-rounded">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  <% }) %>
+
+                  <!-- <tr>
                     <td>
                       <p class="fw-normal mb-1">Consultant</p>
                       <p class="text-muted mb-0">Finance</p>
@@ -210,7 +245,7 @@
                         Delete
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
 
@@ -220,7 +255,7 @@
         </div>
 
         <!-- Item to show all the users who are editors -->
-        <div class="accordion-item">
+        <!-- <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#panelsStayOpen-collapseThree" aria-expanded="false"
@@ -332,7 +367,7 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Item to show all the users who are Viewers -->
         <div class="accordion-item">
@@ -340,7 +375,7 @@
             <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
               data-mdb-target="#panelsStayOpen-collapseFour" aria-expanded="false"
               aria-controls="panelsStayOpen-collapseFour">
-              Viewers &nbsp;<i class="fas fa-eye"></i>
+              Users &nbsp;<i class="fas fa-eye"></i>
             </button>
           </h2>
           <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
@@ -355,35 +390,47 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center">
+                  <% reports.forEach(elements => { %>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
 
-                        <div class="ms-3">
-                          <p class="fw-bold mb-1">Joe</p>
-                          <p class="text-muted mb-0">Doe</p>
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1"><%= elements.fname %>Joe</p>
+                            <p class="text-muted mb-0"><%= elements.lname %></p>
+                          </div>
+
                         </div>
+                      </td>
+                      <td>
+                        <p class="text-muted mb-0"><%= elements.email1 %></p>
 
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-muted mb-0">john.doe@gmail.com</p>
+                      </td>
+                      <td>
+                        <p class="fw-normal mb-1"><%= elements.role %></p>
+                        <p class="text-muted mb-0"><%= elements.department %></p>
+                      </td>
+                      <td>
+                        <a href="/view/<%= elements._id %>">
+                          <button type="button" class="btn btn-link btn-sm btn-rounded">
+                            <i class="bi bi-eye" ></i>
+                          </button>
+                        </a>
+                        <a href="/edit/<%= elements._id %>">
+                          <button type="button" class="btn btn-link btn-sm btn-rounded">
+                              <i class="bi bi-pencil"></i>
+                          </button>
 
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Software engineer</p>
-                      <p class="text-muted mb-0">IT department</p>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Edit
-                      </button>
-                      <button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
+                        </a>
+                        <button type="button" class="btn btn-link btn-sm btn-rounded">
+                          <a href="/delete/<%= elements._id %>"></a>
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  <% }) %>
+
+                  <!-- <tr>
                     <td>
                       <div class="d-flex align-items-center">
 
@@ -441,7 +488,7 @@
                         Delete
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
 

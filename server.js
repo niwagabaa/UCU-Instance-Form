@@ -1,5 +1,4 @@
 // server.js
-// require('dotenv').config();
 
 console.log('May Node be with you')
 
@@ -8,6 +7,10 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+//Flash messages to show that a user/report has been added to the database
+// const flash = require('express-flash-message')
+const flash = require('express-flash');
+const session = require('express-session')
 const dotenv = require('dotenv')
 dotenv.config();
 
@@ -20,12 +23,29 @@ const app = express()
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+//Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+    }
+  })
+)
+// Flash messages
+// app.use(flash({ sessionKeyName: 'express-flash-message'}));
+app.use(flash());
+
 //Choosing our view engine which is ejs and location
 app.set('view engine', 'ejs')
 app.set('views',__dirname + '/views')
 //hookup express layouts templeting engine
 app.set('layout', 'layouts/layouts')
 app.use(expressLayouts)
+
+
 
 //Static files
 app.use(express.static("public"));

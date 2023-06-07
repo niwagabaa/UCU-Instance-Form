@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
   });
   try {
     await User.create(newUser);
-
+    req.flash('success', 'A new user has been created');
     res.redirect('/admin-dashboard');
   } catch (e) {
     console.log(e);
