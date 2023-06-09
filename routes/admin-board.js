@@ -13,7 +13,9 @@ router.get('/', async (req, res) => {
   try {
     const users = await User.find({}).limit(100);
     const reports = await Issues.find({}).limit(1000);
-    res.render("admin-dashboard", { users, reports })
+    const reportNumber = await Issues.count();
+    const userNumber = await User.count();
+    res.render("admin-dashboard", { users, reports, reportNumber, userNumber })
   } catch (e) {
     console.log(e);
   }

@@ -1,10 +1,10 @@
 <div class="container">
 
     <div class="row mb-5">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <h5>Admin Dashboard</h5>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="input-group rounded">
           <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -13,7 +13,14 @@
         </div>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Create Incident</button>
+        <a href="register">
+          <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Create User</button>
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a href="report-an-incident">
+          <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Create Incident</button>
+        </a>
       </div>
       <div class="col-md-2">
         <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="dark">Sign Out</button>
@@ -40,7 +47,9 @@
                 <div class="col-md-6 mb-4 mb-md-5">
                   <div class="d-flex align-items-start">
                     <div class="p-3 badge-primary rounded-4">
-                      <h5>27</h5>
+                      <h5>
+                        <%= reportNumber %>
+                      </h5>
                     </div>
                     <div class="ms-4">
                       <p class="fw-bold mb-1">Reports</p>
@@ -105,7 +114,7 @@
                   <tr>
                     <th>Title</th>
                     <th>Reporter</th>
-                    <th>Role</th>
+                    <th>Time of Incident</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -121,21 +130,25 @@
                         <div class="d-flex align-items-center">
 
                           <div class="ms-3">
-                            <p class="fw-bold mb-1"><%= element.fname %> <%= element.lname %></p>
-                            <p class="text-muted mb-0"><%= element.email1 %></p>
+                            <p class="fw-bold mb-1"><%= element.reporter %>
+                            <!-- <p class="text-muted mb-0">email</p> -->
                           </div>
 
                         </div>
                       </td>
                       <td>
-                        <p class="fw-normal mb-1"><%= element.role %></p>
-                        <p class="text-muted mb-0"><%= element.department %></p>
+                        <p class="fw-normal mb-1"><%= element.exampleDatepicker1 %></p>
+                        <!-- <p class="text-muted mb-0">department</p> -->
                       </td>
                       <td>
                         <span class="badge badge-success rounded-pill d-inline">Active</span>
                       </td>
                       <td>
-
+                        <a href="report-statement/<%= element._id %>">
+                          <button type="button" class="btn btn-link btn-sm btn-rounded">
+                            View
+                          </button>
+                        </a>
                         <button type="button" class="btn btn-link btn-sm btn-rounded">
                           Edit
                         </button>
@@ -390,13 +403,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% reports.forEach(elements => { %>
+                  <% users.forEach(elements => { %>
                     <tr>
                       <td>
                         <div class="d-flex align-items-center">
 
                           <div class="ms-3">
-                            <p class="fw-bold mb-1"><%= elements.fname %>Joe</p>
+                            <p class="fw-bold mb-1"><%= elements.fname %></p>
                             <p class="text-muted mb-0"><%= elements.lname %></p>
                           </div>
 
@@ -413,12 +426,12 @@
                       <td>
                         <a href="/view/<%= elements._id %>">
                           <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            <i class="bi bi-eye" ></i>
+                            View
                           </button>
                         </a>
                         <a href="/edit/<%= elements._id %>">
                           <button type="button" class="btn btn-link btn-sm btn-rounded">
-                              <i class="bi bi-pencil"></i>
+                            Edit
                           </button>
 
                         </a>
