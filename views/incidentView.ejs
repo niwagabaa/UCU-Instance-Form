@@ -1,61 +1,227 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-11">
-      
-      <div class="accordion accordion-borderless" id="accordionFlushExampleX">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOneX">
-            <button class="accordion-button" type="button" data-mdb-toggle="collapse"
-              data-mdb-target="#flush-collapseOneX" aria-expanded="true" aria-controls="flush-collapseOneX">
-              Accordion Item #1
-            </button>
-          </h2>
-          <div id="flush-collapseOneX" class="accordion-collapse collapse show"
-            aria-labelledby="flush-headingOneX" data-mdb-parent="#accordionFlushExampleX">
-            <div class="accordion-body">
-              Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the first item's accordion body.
-            </div>
+
+<div class="row">
+
+  <div class="col-md-11">
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <div class="container">
+          <div class="d-grid gap-3 mt-4" >
+            <h4 class="p-2 bg-light"> <%= issue.title %> &nbsp; <i class="fas fa-desktop"></i></h4>
           </div>
+          <hr>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwoX">
-            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
-              data-mdb-target="#flush-collapseTwoX" aria-expanded="false" aria-controls="flush-collapseTwoX">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="flush-collapseTwoX" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoX"
-            data-mdb-parent="#accordionFlushExampleX">
-            <div class="accordion-body">
-              Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the second item's accordion body.
-              Let's imagine this being filled with some actual content.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThreeX">
-            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
-              data-mdb-target="#flush-collapseThreeX" aria-expanded="false" aria-controls="flush-collapseThreeX">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="flush-collapseThreeX" class="accordion-collapse collapse" aria-labelledby="flush-headingThreeX"
-            data-mdb-parent="#accordionFlushExampleX">
-            <div class="accordion-body">
-              Placeholder content for this accordion, which is intended to demonstrate the
-              <code>.accordion-flush</code> class. This is the third item's accordion body.
-              Nothing more exciting happening here in terms of content, but just filling up
-              the space to make it look, at least at first glance, a bit more representative
-              of how this would look in a real-world application.
-            </div>
-          </div>
+        <!-- <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <h2>Network Incident Title &nbsp;</h2> <i class="fas fa-desktop"></i>
+          </button>
+        </h2> -->
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+          <div class="accordion-body">
+
+            <!-- Section: Details -->
+            <section class="mb-6">
+
+              <div class="row gx-xl-5">
+
+                <div class="col-lg-6 mb-6 mb-lg-0">
+
+                  <img
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1034&q=80"
+                    class="img-fluid rounded"
+                    alt="racks and switches with ethernets"
+                  />
+
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+
+                  <div class="ms-3">
+                              <p class="fw-bold mb-4"> <%= issue.reporter %></p>
+                              <!-- <p class="text-muted mb-1">[Department]</p> -->
+                              <p class="text-muted "> <%= issue.exampleDatepicker1 %> </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+            <!-- Section: Details -->
+
+            <!-- Executive Summary -->
+            <section class="mb-5">
+              <div class="container">
+                <p class="text-uppercase mb-3">
+                  <strong>Executive Summary</strong>
+                </p>
+                <div class="row">
+                  <div class="rounded-3" style="background-color: #dfe7f6; height: 100px">
+                    <p class="fw-bold ms-1 me-1 mb-2 mt-3" style="border-radius:3px"><%= issue.summary %></p>
+
+                  </div>
+              </div>
+            </section>
+
+
+
+                        <!-- Root cause and Timeline of incident -->
+
+                        <br>
+
+                        <section class="mb-8">
+
+                          <div class="row gx-xl-5">
+
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+
+                              <div class="d-flex align-items-start">
+                                <div class="p-3 badge-primary rounded-4">
+                                  <i class="fas fa-bug fa-lg fa-fw"></i>
+                                </div>
+                                <div class="ms-4">
+                                  <p class="text-uppercase mb-4">
+                                    <strong>Recommendation</strong>
+                                  </p>
+                                  <p class="text-muted mb-0"><%= issue.root %></p>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+
+                              <div class="d-flex align-items-start">
+                                <div class="p-3 badge-primary rounded-4">
+                                  <i class="fas fa-hourglass-half fa-lg fa-fw"></i>
+                                </div>
+                                <div class="ms-4">
+                                  <p class="text-uppercase mb-4">
+                                    <strong>Recommendation</strong>
+                                  </p>
+                                  <p class="text-muted mb-0"><%= issue.timeline %>]</p>
+
+                                </div>
+                              </div>
+
+
+                            </div>
+
+
+                          </div>
+
+                        </section>
+
+                        <!-- Section: Impact, Recommendation and resolution -->
+                        <section class="mb-3 mb-lg-10">
+
+                          <div class="row gx-xl-5">
+                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+
+                              <div class="card">
+                                <div class="card-header text-center pt-4">
+                                  <p class="text-uppercase">
+                                    <strong>Impact</strong>
+                                  </p>
+
+                                  <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">
+                                    <!-- Buy -->
+                                  </button>
+
+
+                                </div>
+                                <div class="card-body">
+
+                                  <p>
+                                    <i class="fas fa-asterisk"></i>&nbsp;<%= issue.impact %>
+                                  </p>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+
+                              <div class="card">
+                                <div class="card-header text-center pt-4">
+                                  <p class="text-uppercase">
+                                    <strong>Resolution</strong>
+                                  </p>
+
+
+                                  <button type="button" class="btn btn-secondary btn-rounded w-100 mb-3">
+                                    <!-- Buy -->
+                                  </button>
+                                </div>
+                                <div class="card-body">
+                                  <p>
+                                    <i class="fas fa-asterisk"></i>&nbsp;<%= issue.resolution %>
+                                  </p>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+
+                              <div class="card">
+                                <div class="card-header text-center pt-4">
+                                  <p class="text-uppercase">
+                                    <strong>Recommendation</strong>
+                                  </p>
+
+                                  <button
+                                          type="button"
+                                          class="btn btn-secondary btn-rounded w-100 mb-3"
+                                          >
+                                    <!-- Buy -->
+                                  </button>
+                                </div>
+                                <div class="card-body">
+                                  <p>
+                                    <i class="fas fa-asterisk"></i>&nbsp; <%= issue.recommendation %>
+                                  </p>
+
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </section>
+                        <!-- Section: Pricing -->
+
+                        <!-- Conclusion -->
+                        <section class="mb-2">
+                          <div class="container">
+                            <div class="row mb-2">
+                              <p class="text-uppercase mb-2">
+                                <strong>Conclusion</strong>
+                              </p>
+                            </div>
+                            <div class="row">
+                              <div class="rounded-3" style="background-color: #dfe7f6; height: 100px">
+                                <p class="fw-bold ms-1 me-1 mb-2 mt-3" style="border-radius:3px"><%= issue.conclusion %></p>
+
+                              </div>
+                            </div>
+                          </div>
+
+                        </section>
+
+
         </div>
       </div>
 
     </div>
 
   </div>
+
+</div>
 
 </div>

@@ -25,3 +25,4 @@ router.get('/', async (req, res) => {
 
 //exporting the files to server.js
 module.exports = router
+ 

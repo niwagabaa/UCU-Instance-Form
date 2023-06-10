@@ -5,8 +5,8 @@ const mongoose = require('mongoose')
 
 // const User = require("../models/user");
 
-//login page route
-router.get('/', async (req, res) => {
+//incident view page route
+router.get('/:id', async (req, res) => {
   try {
     const issue = await Issues.findOne({ _id: req.params.id })
     res.render("incidentView", {issue})
