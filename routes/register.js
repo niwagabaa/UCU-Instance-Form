@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
 
   console.log(req.body);
-
+  const hashedPassword = await bcrypt.hash(req.body.password, 10)
   const newUser = new User({
     fname: req.body.fname,
     lname: req.body.lname,
@@ -26,10 +26,11 @@ router.post('/', async (req, res) => {
     role: req.body.role,
     department: req.body.department,
     type: req.body.type,
-    password: req.body.password,
+    password: hashedPassword,
 
   });
   try {
+
     await User.create(newUser);
 
     res.redirect('/admin-dashboard');

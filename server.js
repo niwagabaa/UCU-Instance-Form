@@ -6,10 +6,19 @@ console.log('May Node be with you')
 //Requiring express dependency on the server
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
+const session = require('express-session')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 dotenv.config();
+const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const flash = require('express-flash')
+const initializePassport = require('./auth/passport');
+initializePassport(
+  passport,
+  email => users.find(user => user.email1 === email)
+)
 
 //MongoDB Schemas
 const Schema = mongoose.Schema
@@ -19,6 +28,11 @@ const app = express()
 //Body BodyParsing
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+app.use(flash())
+app.use(session({ secret: 'SECRET' }))
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Choosing our view engine which is ejs and location
 app.set('view engine', 'ejs')
